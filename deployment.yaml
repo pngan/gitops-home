@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -9,7 +8,7 @@ metadata:
     fluxcd.io/ignore: "false"
     fluxcd.io/automated: "true"
 spec:
-  replicas: 2
+  replicas: 5
   selector:
     matchLabels:
       app: nginxhello
@@ -19,7 +18,7 @@ spec:
         app: nginxhello
     spec:
       containers:
-      - image: nbrown/nginxhello:1.19
+      - image: nbrown/nginxhello:1.18.0
         name: nginxhello
         ports:
         - containerPort: 80
@@ -40,3 +39,30 @@ spec:
           httpGet:
             port: 80
             path: /healthz/ready
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: helloworld
+  name: helloworld
+  annotations:
+    fluxcd.io/ignore: "false"
+    fluxcd.io/automated: "true"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+      name: helloworld
+    spec:
+      containers:
+        - name: helloworld
+          image: gcr.io/google-samples/hello-app:1.0
+          ports:
+          - containerPort: 80
+          imagePullPolicy: Always
