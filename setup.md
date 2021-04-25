@@ -19,4 +19,8 @@ MicroK8s is installed using these [instructions](https://ubuntu.com/tutorials/in
 
 
 
-## Install 
+## Installation of cert-manager 
+
+Followed the "Installting with regular manifests" method because of flux.
+
+https://cert-manager.io/docs/installation/kubernetes/
