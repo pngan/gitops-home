@@ -18,7 +18,7 @@ spec:
         app: nginxhello
     spec:
       containers:
-      - image: nbrown/nginxhello:1.18
+      - image: nbrown/nginxhello:1.19
         name: nginxhello
         ports:
         - containerPort: 80
