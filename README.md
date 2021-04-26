@@ -11,3 +11,5 @@ The public facing service web server is provided using Nginx, which routes reque
 The Nginx server serves SSL traffic using a free Let's Encrypt SSL certificate. This initial certificate is retrieved and then kept up to date automatically using the `cert-manager` Kubernetes service. 
 
 Setting up the Nginx ingress controller and cert-manager are the most involved parts of setting up this home server.
+
+The instructions to set up this home server are described in [`setup.md`](setup.md)
