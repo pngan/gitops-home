@@ -39,6 +39,11 @@ spec:
           httpGet:
             port: 80
             path: /healthz/ready
+            resources:
+              requests:
+                cpu: "1m"
+              limits:
+                cpu: "1000m"
 ---
 apiVersion: apps/v1
 kind: Deployment
