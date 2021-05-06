@@ -7,6 +7,7 @@ metadata:
   annotations:
     fluxcd.io/ignore: "false"
     fluxcd.io/automated: "true"
+    chaos.alpha.kubernetes.io/enabled: "true"
 spec:
   replicas: 5
   selector:
