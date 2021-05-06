@@ -9,7 +9,7 @@ metadata:
     fluxcd.io/automated: "true"
     chaos.alpha.kubernetes.io/enabled: "true"
 spec:
-  replicas: 5
+  replicas: 4
   selector:
     matchLabels:
       app: nginxhello
