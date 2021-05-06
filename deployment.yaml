@@ -8,7 +8,7 @@ metadata:
     fluxcd.io/ignore: "false"
     fluxcd.io/automated: "true"
 spec:
-  replicas: 10
+  replicas: 1
   selector:
     matchLabels:
       app: nginxhello
@@ -22,7 +22,7 @@ spec:
         name: nginxhello
         resources:
           limits:
-            cpu: "20m"
+            cpu: "1000m"
         ports:
         - containerPort: 80
         env:
