@@ -41,9 +41,11 @@ spec:
             path: /healthz/ready
             resources:
               requests:
-                cpu: "1m"
+                cpu: "100m"
+                memory: "1Mi"
               limits:
                 cpu: "1000m"
+                memory: "100Mi"
 ---
 apiVersion: apps/v1
 kind: Deployment
