@@ -40,9 +40,9 @@ spec:
             port: 80
             path: /healthz/ready
             resources:
-              requests:
-                cpu: "10m"
-                memory: "1Mi"
+#              requests:
+#                cpu: "10m"
+#                memory: "1Mi"
               limits:
                 cpu: "1000m"
                 memory: "100Mi"
