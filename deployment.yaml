@@ -41,7 +41,7 @@ spec:
             path: /healthz/ready
             resources:
               requests:
-                cpu: "10m"
+                cpu: "1m"
                 memory: "1Mi"
               limits:
                 cpu: "1000m"
