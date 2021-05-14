@@ -90,4 +90,19 @@ Run the following command to check that a certificate has been correctly issued:
 
     kubectl get certificates
 
+## Install Secrets
 
+The `ipmon-deployment.yaml` pod requires the provision of a secret named `ovh-secrets`. This is done by applying a yaml file like this:
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ovh-secrets
+type: Opaque
+stringData:
+  endpoint: <redacted>
+  application_key: <redacted>
+  application_secret: <redacted>
+  consumer_key: <redacted>
+```  
+This file is not checked into git because it contains secret information. To view the secrets, look at the log for the pod `secrets-test-deployment.yaml`.
