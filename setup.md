@@ -15,6 +15,17 @@ Note that once microK8s is installed, the `kubectl` command to use is the microK
 
 With Kubernetes installed, we are ready to install Flux v1.
 
+## Initial configuraiton of MicroK8s
+
+### Enable storage
+
+The `seq` service, among others require persistent storage to be enables. In `microk8s`, the following command needs to be run:
+
+    microk8s.enable storage
+    
+ Ref: [Stackoverflow ref](https://stackoverflow.com/a/60213860/41410)  
+
+
 ## Install Flux v1
 
 The primary source of information used to install flux, was Nigel Brown's Pluralsight course called [Automating Kubernetes Deployments Using a GitOps Workflow](https://app.pluralsight.com/library/courses/automating-kubernetes-deployments-gitops-workflow/table-of-contents). 
