@@ -23,7 +23,7 @@ spec:
           resources:
             limits:
               memory: 128Mi
-              cpu: 500m
+              cpu: 600m
           env:
             - name: OVH_ENDPOINT
               valueFrom:
