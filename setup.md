@@ -19,7 +19,7 @@ With Kubernetes installed, we are ready to install Flux v1.
 
 ### Enable storage
 
-The `seq` service, among others require persistent storage to be enables. In `microk8s`, the following command needs to be run:
+The `seq` service, among others require persistent storage to be enabled. In `microk8s`, the following command needs to be run:
 
     microk8s.enable storage
     
