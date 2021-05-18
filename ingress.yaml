@@ -11,6 +11,7 @@ spec:
   tls:
   - hosts:
     - nganfamily.com
+    - log.nganfamily.com
     secretName: letsencrypt-prod
   rules:
     - host: nganfamily.com
@@ -23,3 +24,13 @@ spec:
                 name: nginxhello
                 port:
                   number: 80
+    - host: log.nganfamily.com
+      http:
+        paths:
+        - pathType: Prefix
+          path: "/"
+          backend:
+            service:
+              name: seqserver
+              port:
+                number: 8020
