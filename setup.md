@@ -26,6 +26,15 @@ The `seq` service, among others require persistent storage to be enabled. In `mi
  Ref: [Stackoverflow ref](https://stackoverflow.com/a/60213860/41410)  
 
 
+### Enable DNS
+
+The `ipmon` service, needs to contact the `seqserver` servcice in order to upload log data. For this internal network to work a DNS services needs to be installed. In `microk8s`, the following command needs to be run:
+
+    microk8s.enable dns
+    
+ Ref: [Microk8s ref](https://microk8s.io/docs)
+
+
 ## Install Flux v1
 
 The primary source of information used to install flux, was Nigel Brown's Pluralsight course called [Automating Kubernetes Deployments Using a GitOps Workflow](https://app.pluralsight.com/library/courses/automating-kubernetes-deployments-gitops-workflow/table-of-contents). 
