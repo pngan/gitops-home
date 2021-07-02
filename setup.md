@@ -79,6 +79,8 @@ If the flux operator has been correctly configured and is running properly, then
 
 ## Installation of the Ingress Controller
 
+`nginx-service.yaml`
+
 The primary source of information for the installation of the Ingress Controller and Ingress Configure is the Pluralsight course by Anthony Nocentino, [Configuring and Managing Kubernetes Networking, Services, and Ingress](https://app.pluralsight.com/library/courses/configuring-managing-kubernetes-networking-services-ingress/table-of-contents). 
 
 In order for the web apps to be reachable from the internet the gateway router should route incoming traffic on ports `80` and `443` to the IP address of your server machine, and to ports `30000` and `30001`, respectively. These ports are defined in the configuration file `nginx-service.yaml`.
@@ -97,6 +99,8 @@ However because we are using flux to do the provisioning, we took a copy of it a
 The Ingress on which the Ingress Controller acts upon is defined in the file `ingress.yaml`. The routes defined in this file should be changed to match your own domain name, and routes to your own web applications. 
 
 ## Installation of cert-manager 
+
+`clusterissuer.yaml`
 
 Up to this point, the Ingress Controller and Ingress will be able to serve HTTP traffic, but not HTTPS traffic because the Nginx server does not have a SSL certificate to accompany the SSL endpoints. Such a certificate can be obtained from the certificate issuer Let's Encrypt who issues SSL certificates that have to be renewed every 90 days. Certificates are retrieved and renewed using a Kubernetes certificate managment controller called `cert-manager`. 
 
