@@ -130,3 +130,12 @@ stringData:
   consumer_key: <redacted>
 ```  
 This file is not checked into git because it contains secret information. To view the secrets, look at the log for the pod `secrets-test-deployment.yaml`.
+
+## Install seq server
+
+`seqserver.yaml`
+
+This home server supports a central repository for application logs. This is provided by a [`seq` server](https://datalust.co/seq). The kubernetes manifest file for installing the seq server is provided in the file `seqserver.yaml`. The docker-compose file for seq was converted to `seqserver.yaml` by running the tool [`Kompose`](https://kompose.io/) over it.
+
+
+
