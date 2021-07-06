@@ -19,7 +19,7 @@ spec:
         app: nginxhello
     spec:
       containers:
-      - image: nbrown/nginxhello:1.19
+      - image: nbrown/nginxhello:030d8442
         name: nginxhello
         resources:
           limits:
