@@ -138,4 +138,15 @@ This file is not checked into git because it contains secret information. To vie
 This home server supports a central repository for application logs. This is provided by a [`seq` server](https://datalust.co/seq). The kubernetes manifest file for installing the seq server is provided in the file `seqserver.yaml`. The docker-compose file for seq was converted to `seqserver.yaml` by running the tool [`Kompose`](https://kompose.io/) over it.
 
 
+## Install Kubernetes Horizontal Pod Autoscaler
+
+Install the official [Kubernetes autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/) that can increase the number of pods according to the CPU or memory used. A prerequisite for running the autoscaler is to install the [Metric Server](https://github.com/kubernetes-sigs/metrics-server) which collects cluster metrics used by the autoscaler to determine whether scaling is required. To install the metrics server in microk8s, run the command:
+
+`microk8s enable metrics-server`
+
+
+
+
+
+
 
