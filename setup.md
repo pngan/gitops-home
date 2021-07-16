@@ -144,9 +144,11 @@ Install the official [Kubernetes autoscaler](https://kubernetes.io/docs/tasks/ru
 
 `microk8s enable metrics-server`
 
+Check that the metrics server is enabled by running the following command:
 
+`kubectl get --raw "/apis/metrics.k8s.io/v1beta1/nodes"`
 
-
-
-
-
+It should output something similar to:
+```json
+{"kind":"NodeMetricsList","apiVersion":"metrics.k8s.io/v1beta1","metadata":{"selfLink":"/apis/metrics.k8s.io/v1beta1/nodes"},"items":[{"metadata":{"name":"manuka","selfLink":"/apis/metrics.k8s.io/v1beta1/nodes/manuka","creationTimestamp":"2021-07-16T06:34:10Z"},"timestamp":"2021-07-16T06:33:50Z","window":"30s","usage":{"cpu":"1164143878n","memory":"5347416Ki"}}]}
+```
