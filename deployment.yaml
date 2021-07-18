@@ -70,3 +70,30 @@ spec:
         ports:
         - containerPort: 80
         imagePullPolicy: Always
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: loadtest
+  name: loadtest
+  annotations:
+    fluxcd.io/ignore: "false"
+    fluxcd.io/automated: "true"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: loadtest
+  template:
+    metadata:
+      labels:
+        app: loadtest
+      name: loadtest
+    spec:
+      containers:
+      - name: loadtest
+        image: pngan/aspnetcore-kubernetes:1001
+        ports:
+        - containerPort: 80
+        imagePullPolicy: Always

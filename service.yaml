@@ -11,7 +11,7 @@ spec:
   ports:
   - port: 80
     protocol: TCP
-    targetPort: 80
+    targetPort: 8001
   selector:
     app: nginxhello
 ---
@@ -31,3 +31,20 @@ spec:
     targetPort: 8080
   selector:
     app: helloworld
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: loadtest
+  name: loadtest
+  annotations:
+    fluxcd.io/ignore: "false"
+    fluxcd.io/automated: "true"
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: loadtest
