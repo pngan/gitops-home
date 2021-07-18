@@ -21,7 +21,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: nginxhello
+                name: loadtest
                 port:
                   number: 80
     - host: log.nganfamily.com
