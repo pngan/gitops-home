@@ -169,7 +169,7 @@ export TOKEN=$(kubectl describe secret $(kubectl get secret | awk '/^dashboard-t
 
 Then open the dashboard at:
 
-`http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/`
+http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
 
 ### Access Grafana dashboard
 
@@ -181,6 +181,8 @@ Open browser to the IP and Port given tby the service called `grafana`.
 
 The credentials for `grafana` are `admin/admin`.
 
+
+Reference https://ubuntu.com/blog/monitoring-at-the-edge-with-microk8s
 
 
 
