@@ -158,3 +158,30 @@ It should output something similar to:
 Resource monitoring is provided by Prometheus and Grafana by running the command. Grafana is installed when installing the dashboard.
 
 `microk8s.enable dashboard prometheus`
+
+### Access Kubernetes Dashboard
+
+Before the Kubernetes dashboard can be accessed, a token must be generated:
+
+```bash
+export TOKEN=$(kubectl describe secret $(kubectl get secret | awk '/^dashboard-token-/{print $1}') | awk '$1=="token:"{print $2}') && echo -e "\n--- Copy and paste this token for dashboard access --\n$TOKEN\n---"
+```
+
+Then open the dashboard at:
+
+`http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/`
+
+### Access Grafana dashboard
+
+First get the IP address and port for grafana using the command:
+
+`k get services --namespace=monitoring`
+
+Open browser to the IP and Port given tby the service called `grafana`.
+
+The credentials for `grafana` are `admin/admin`.
+
+
+
+
+
