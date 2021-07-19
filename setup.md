@@ -152,3 +152,9 @@ It should output something similar to:
 ```json
 {"kind":"NodeMetricsList","apiVersion":"metrics.k8s.io/v1beta1","metadata":{"selfLink":"/apis/metrics.k8s.io/v1beta1/nodes"},"items":[{"metadata":{"name":"manuka","selfLink":"/apis/metrics.k8s.io/v1beta1/nodes/manuka","creationTimestamp":"2021-07-16T06:34:10Z"},"timestamp":"2021-07-16T06:33:50Z","window":"30s","usage":{"cpu":"1164143878n","memory":"5347416Ki"}}]}
 ```
+
+# Install Monitoring
+
+Resource monitoring is provided by Prometheus and Grafana by running the command. Grafana is installed when installing the dashboard.
+
+`microk8s.enable dashboard prometheus`
