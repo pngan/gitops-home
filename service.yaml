@@ -38,13 +38,12 @@ metadata:
   labels:
     app: loadtest
   name: loadtest
-  namespace: loadtest
   annotations:
     fluxcd.io/ignore: "false"
     fluxcd.io/automated: "true"
 spec:
   ports:
-  - port: 80
+  - port: 8004
     protocol: TCP
     targetPort: 80
   selector:

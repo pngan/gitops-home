@@ -77,7 +77,6 @@ metadata:
   labels:
     app: loadtest
   name: loadtest
-  namespace: loadtest
   annotations:
     fluxcd.io/ignore: "false"
     fluxcd.io/automated: "true"
@@ -91,7 +90,6 @@ spec:
       labels:
         app: loadtest
       name: loadtest
-      namespace: loadtest
     spec:
       containers:
       - name: loadtest

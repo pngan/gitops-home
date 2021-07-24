@@ -23,7 +23,7 @@ spec:
               service:
                 name: loadtest
                 port:
-                  number: 80
+                  number: 8004
     - host: log.nganfamily.com
       http:
         paths:
