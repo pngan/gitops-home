@@ -93,7 +93,7 @@ spec:
     spec:
       containers:
       - name: loadtest
-        image: pngan/aspnetcore-kubernetes:1001
+        image: pngan/aspnetcore-kubernetes:1002
         ports:
         - containerPort: 80
         imagePullPolicy: Always
