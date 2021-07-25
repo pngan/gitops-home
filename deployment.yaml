@@ -81,7 +81,7 @@ metadata:
     fluxcd.io/ignore: "false"
     fluxcd.io/automated: "true"
 spec:
-  replicas: 2
+  replicas: 10
   selector:
     matchLabels:
       app: loadtest
@@ -99,4 +99,4 @@ spec:
         imagePullPolicy: Always
         resources:
           limits:
-            cpu: "100m"
+            cpu: "30m"
