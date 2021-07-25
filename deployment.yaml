@@ -93,7 +93,10 @@ spec:
     spec:
       containers:
       - name: loadtest
-        image: pngan/aspnetcore-kubernetes:1002
+        image: pngan/aspnetcore-kubernetes:1003
         ports:
         - containerPort: 80
         imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: "100m"
