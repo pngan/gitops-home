@@ -81,7 +81,7 @@ metadata:
     fluxcd.io/ignore: "false"
     fluxcd.io/automated: "true"
 spec:
-  replicas: 12
+  replicas: 3
   selector:
     matchLabels:
       app: loadtest
