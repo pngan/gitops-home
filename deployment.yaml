@@ -99,6 +99,6 @@ spec:
         imagePullPolicy: Always
         resources:
           limits:
-            cpu: "50m"
+            cpu: "500m"
           requests:
-            cpu: "10m"
+            cpu: "100m"
