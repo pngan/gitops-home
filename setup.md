@@ -185,5 +185,58 @@ The credentials for `grafana` are `admin/admin`.
 Reference https://ubuntu.com/blog/monitoring-at-the-edge-with-microk8s
 
 
+# Setup K9s
+
+## First create the kube config
+You need to install the kubernetes config file using the command:
+```
+cd 
+mkdir .kube
+cd .kube
+microk8s config > config
+```
+
+## Install k9s
+
+`sudo snap install k9s`
+
+## Create a k9s config file
+
+First find the location of where the config file should go:
+
+`k9s info`
+
+Then create an empty file shown in the `Configuration` path.
+
+Populate the information using the values seeded from [here](https://github.com/derailed/k9s#k9s-configuration). 
+
+Set the values:
+```
+  currentContext: microk8s
+  currentCluster: microk8s-cluster
+```
+
+
+Put `export KUBECONFIG=$HOME/.kube/config` into the the `.bashrc` file.
+
+Run k9s by running `k9s`
+
+
+# Trouble Shooting
+
+Running `kubectl`: If you get the message: `"The connection to the server localhost:8080 was refused - did you specify the right host or port?" `
+
+You need to install the kubernetes config file using the command:
+```
+cd 
+mkdir .kube
+cd .kube
+microk8s config > config
+```
+
+Running `k9s`: 
+If you see: `Boom!! Unable to locate K8s cluster configuration.`
+
+Put `export KUBECONFIG=$HOME/.kube/config` into the the `.bashrc` file.
 
 
