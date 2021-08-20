@@ -153,6 +153,10 @@ It should output something similar to:
 {"kind":"NodeMetricsList","apiVersion":"metrics.k8s.io/v1beta1","metadata":{"selfLink":"/apis/metrics.k8s.io/v1beta1/nodes"},"items":[{"metadata":{"name":"manuka","selfLink":"/apis/metrics.k8s.io/v1beta1/nodes/manuka","creationTimestamp":"2021-07-16T06:34:10Z"},"timestamp":"2021-07-16T06:33:50Z","window":"30s","usage":{"cpu":"1164143878n","memory":"5347416Ki"}}]}
 ```
 
+Now you should be able to get the top pods by CPU:
+
+`kubectl top pods`
+
 # Install Monitoring
 
 Resource monitoring is provided by Prometheus and Grafana by running the command. Grafana is installed when installing the dashboard.
@@ -189,7 +193,7 @@ Reference https://ubuntu.com/blog/monitoring-at-the-edge-with-microk8s
 
 ## First create the kube config
 You need to install the kubernetes config file using the command:
-```
+```bash
 cd 
 mkdir .kube
 cd .kube
@@ -211,7 +215,7 @@ Then create an empty file shown in the `Configuration` path.
 Populate the information using the values seeded from [here](https://github.com/derailed/k9s#k9s-configuration). 
 
 Set the values:
-```
+```yaml
   currentContext: microk8s
   currentCluster: microk8s-cluster
 ```
@@ -224,19 +228,45 @@ Run k9s by running `k9s`
 
 # Trouble Shooting
 
-Running `kubectl`: If you get the message: `"The connection to the server localhost:8080 was refused - did you specify the right host or port?" `
+## Running `kubectl`:
+
+If you get the message: `"The connection to the server localhost:8080 was refused - did you specify the right host or port?" `
 
 You need to install the kubernetes config file using the command:
-```
+```bash
 cd 
 mkdir .kube
 cd .kube
 microk8s config > config
 ```
+----
+## Running `k9s`
 
-Running `k9s`: 
 If you see: `Boom!! Unable to locate K8s cluster configuration.`
 
 Put `export KUBECONFIG=$HOME/.kube/config` into the the `.bashrc` file.
 
+----
 
+## Running `kubectl top pods`
+
+If you see `Error from server (ServiceUnavailable): the server is currently unable to handle the request (get pods.metrics.k8s.io)`
+Then the metrics server needs to have [additional configuration](https://www.linuxsysadmins.com/service-unavailable-kubernetes-metrics/).
+
+Run:
+
+```bash
+kubectl edit deployments.apps -n kube-system metrics-server
+```
+Add this below dns policy or at the end of the container section above the restart Policy.
+
+```yaml
+hostNetwork: true
+```
+
+__Tip__: you should put the line
+
+```bash
+export KUBE_EDITOR="nano"
+```
+in your `.bashrc` file to use nano instead of vim as your default kubectl editor
