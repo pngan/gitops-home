@@ -10,12 +10,17 @@ spec:
   minReplicas: 4
   maxReplicas: 10
   metrics:
-  - type: Resource
-    resource:
-      name: cpu
+  - type: Object
+    object:
+      metric:
+        name: requests-per-second
+      describedObject:
+        apiVersion: networking.k8s.io/v1
+        kind: Ingress
+        name: ingress-homeserver
       target:
-        type: Utilization
-        averageUtilization: 40
+        type: Value
+        value: "20"        
   behavior:
     scaleDown:
       stabilizationWindowSeconds: 20
