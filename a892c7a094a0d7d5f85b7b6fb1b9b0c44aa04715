@@ -1,0 +1,1 @@
+{"jobID":"06788ca0-0d3c-91d4-e906-41401c8c80fb","spec":{"type":"policy","cause":{"Message":"","User":"pngan \u003c4557674+pngan@users.noreply.github.com\u003e"},"spec":{"default:deployment/nginxhello":{"add":{},"remove":{"automated":"true"}}}},"result":null}
