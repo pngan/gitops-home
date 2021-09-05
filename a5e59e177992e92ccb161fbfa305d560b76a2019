@@ -1,0 +1,1 @@
+{"jobID":"f0c80877-1434-e25f-3857-92de3ed5852d","spec":{"type":"policy","cause":{"Message":"","User":"pngan \u003c4557674+pngan@users.noreply.github.com\u003e"},"spec":{"default:deployment/helloworld":{"add":{},"remove":{"automated":"true"}}}},"result":null}
