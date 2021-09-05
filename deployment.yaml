@@ -52,7 +52,6 @@ metadata:
   name: helloworld
   annotations:
     fluxcd.io/ignore: "false"
-    fluxcd.io/automated: "true"
 spec:
   replicas: 1
   selector:
