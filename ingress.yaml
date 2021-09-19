@@ -23,9 +23,9 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: loadtest
+                name: ping-server
                 port:
-                  number: 8004
+                  number: 8000
     - host: covid19.nganfamily.com
       http:
         paths:
