@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: covid19-server
+  name: covid19-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: covid19-server
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: covid19-server
+    spec:
+      containers:
+        - image: pngan/covid19-server
+          name: covid19-server
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "1Gi"
+              cpu: "1"
+            requests:
+              memory: "100Mi"
+              cpu: "100m"
+      restartPolicy: Always
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: covid19-server
+  name: covid19-server
+spec:
+  ports:
+    - name: "8080"
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: covid19-server
+status:
+  loadBalancer: {}
